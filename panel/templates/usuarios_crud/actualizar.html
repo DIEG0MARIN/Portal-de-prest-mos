@@ -1,0 +1,147 @@
+{% extends '../index_master.html'%}
+
+{% block content %}
+<div class="right_col" role="main">
+<h1>Actualizar usuario </h1>
+<form action="{% url 'actualizar' %}" method="POST">
+
+    {% csrf_token %}
+
+    <div class="form-group row">
+        <label for="nombre" class="col-4 col-form-label">Id usuario</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-address-card"></i>
+              </div>
+            </div> 
+            <select id="id" name = "id"> 
+            {% for u in usuarios %}
+                <option value="{{u.id}}">{{ u.id }}</option>
+            {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="form-group row">
+      <label for="nombre" class="col-4 col-form-label">Nombres</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-address-card"></i>
+            </div>
+          </div> 
+          <input id="nombre" name="nombre" type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="number" class="col-4 col-form-label">Número de identificación</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-500px"></i>
+            </div>
+          </div> 
+          <input id="numero_id" name="numero_id" type="number" required="required" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="name" class="col-4 col-form-label">Perfil</label> 
+      <div class="col-8">
+        <select id="perfil" name="perfil" class="custom-select" required="required">
+          <option value="administrativo">Administrativo</option>
+          <option value="aprendiz">Aprendiz</option>
+          <option value="estudiante">Estudiante</option>
+          <option value="docente">Docente</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="number" class="col-4 col-form-label">Telefono</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-phone"></i>
+            </div>
+          </div> 
+          <input id="telefono" name="telefono" type="tel" required="required" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="text2" class="col-4 col-form-label">Correo</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-inbox"></i>
+            </div>
+          </div> 
+          <input id="email" name="email" placeholder="@fucsalud.edu.co" type="email" required="required" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="name" class="col-4 col-form-label">Facultad</label> 
+      <div class="col-8">
+        <select id="facultad" name="facultad" class="custom-select" required="required">
+          <option value="Psicología">Psicología</option>
+          <option value="Matemáticas">Matemáticas</option>
+          <option value="Física">Física</option>
+        </select>
+      </div>
+    </div>
+   
+    <div class="form-group row">
+      <label for="datetime" class="col-4 col-form-label">Fecha</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-calendar"></i>
+            </div>
+          </div> 
+          <input type="datetime-local" id="fecha_prestamo" name="fecha_prestamo"  required="required" class="form-control">
+        </div>
+      </div>
+    </div> 
+    <div class="form-group row">
+      <label for="number" class="col-4 col-form-label"># Portatil </label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-desktop"></i>
+            </div>
+          </div> 
+          <input id="nro_portatil" name="nro_portatil" type="number" required="required" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-4 col-8">
+        <button name="submit" type="submit" class="btn btn-primary"><i class ="fa fa-user-plus"></i> Agregar usuario </button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
